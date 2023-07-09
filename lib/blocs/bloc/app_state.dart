@@ -1,6 +1,6 @@
 part of 'app_bloc.dart';
 
 @immutable
-abstract class AppState {}
+sealed class AppState {}
 
 class AppInitial extends AppState {}
