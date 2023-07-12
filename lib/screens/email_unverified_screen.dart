@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+class EmailUnverifiedScreen extends StatelessWidget {
+  const EmailUnverifiedScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,5 @@
+import 'package:chat_app/routes/routes.dart';
+import 'package:chat_app/services/locator.dart';
 import 'package:chat_app/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
@@ -7,6 +9,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  registerClasses();
   runApp(const MyApp());
 }
 
@@ -15,6 +18,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: AppThemes().widgetTheme);
+    return MaterialApp.router(
+        routerConfig: locator<AppRouter>().routes,
+        // routerDelegate: ,
+        theme: AppThemes().widgetTheme);
   }
 }
