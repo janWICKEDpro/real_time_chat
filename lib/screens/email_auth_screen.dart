@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 class EmailAuthScreen extends StatelessWidget {
   const EmailAuthScreen({super.key});

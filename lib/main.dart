@@ -18,9 +18,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-        routerConfig: locator<AppRouter>().routes,
-        // routerDelegate: ,
-        theme: AppThemes().widgetTheme);
+    return GestureDetector(
+      onTap: () {
+        //dimiss keyboard
+      },
+      child: MaterialApp.router(
+          routerConfig: locator<AppRouter>().routes,
+          // routerDelegate: ,
+          theme: AppThemes().widgetTheme),
+    );
   }
 }
