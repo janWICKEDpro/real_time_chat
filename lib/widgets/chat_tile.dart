@@ -11,11 +11,11 @@ class ChatTile extends StatelessWidget {
     return Opacity(
       opacity: 1.0,
       child: Container(
-        height: 100,
-        width: MediaQuery.of(context).size.width * 0.7,
+        height: 180,
+        width: MediaQuery.of(context).size.width * 0.964,
         decoration: BoxDecoration(
           color: white,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -27,19 +27,30 @@ class ChatTile extends StatelessWidget {
                   children: [
                     const Positioned(
                       child: CircleAvatar(
-                        radius: 15,
+                        radius: 40,
                         backgroundColor: Colors.red,
                       ),
                     ),
                     Positioned(
-                      child: Container(
-                        height: 5,
-                        width: 5,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                      ),
-                    )
+                        left: 60,
+                        top: 60,
+                        child: Container(
+                          height: 18,
+                          width: 18,
+                          decoration: BoxDecoration(
+                            color: white,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Center(
+                              child: Container(
+                            height: 10,
+                            width: 10,
+                            decoration: BoxDecoration(
+                              color: purple,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          )),
+                        ))
                   ],
                 ),
                 sizedBox(height: 5),

@@ -20,9 +20,10 @@ class AppThemes {
   );
   TextStyle name = const TextStyle(
       fontFamily: 'DMSans',
-      fontSize: 18,
+      fontSize: 25,
       color: black,
-      fontWeight: FontWeight.w400);
+      letterSpacing: 1.1,
+      fontWeight: FontWeight.w600);
   TextStyle message = const TextStyle(
     fontFamily: 'DMSans',
     fontSize: 15,
