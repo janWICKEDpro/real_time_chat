@@ -1,5 +1,6 @@
 import 'package:chat_app/themes/colors.dart';
 import 'package:chat_app/themes/themes.dart';
+import 'package:chat_app/widgets/chat_tile.dart';
 import 'package:chat_app/widgets/search_bar.dart';
 import 'package:chat_app/widgets/message_tile.dart';
 import 'package:chat_app/widgets/size_box.dart';
@@ -44,7 +45,15 @@ class MainScreen extends StatelessWidget {
                   Text(
                     "Write to Your Friends and Colleagues",
                     style: AppThemes().headers,
-                  )
+                  ),
+                  sizedBox(height: 15),
+                  MySearchBar(),
+                  Expanded(
+                      child: SizedBox(
+                    child: Scrollbar(
+                      child: SingleChildScrollView(),
+                    ),
+                  ))
                 ],
               ),
             ),

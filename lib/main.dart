@@ -10,9 +10,9 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: purple,
-  ));
+  // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+  //   statusBarColor: purple,
+  // ));
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -28,8 +28,10 @@ class MyApp extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         //dimiss keyboard
+        FocusManager.instance.primaryFocus?.unfocus();
       },
       child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
           routerConfig: locator<AppRouter>().routes,
           // routerDelegate: ,
           theme: AppThemes().widgetTheme),
