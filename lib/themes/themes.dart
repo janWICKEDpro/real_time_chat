@@ -10,9 +10,9 @@ class AppThemes {
   //text styles
   TextStyle headers = const TextStyle(
       fontFamily: 'DMSans',
-      fontSize: 25,
+      fontSize: 35,
       color: white,
-      fontWeight: FontWeight.w500);
+      fontWeight: FontWeight.w600);
   TextStyle subheader = const TextStyle(
     fontFamily: 'DMSans',
     fontSize: 12,
