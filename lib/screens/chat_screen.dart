@@ -51,7 +51,15 @@ class MainScreen extends StatelessWidget {
                   Expanded(
                       child: SizedBox(
                     child: Scrollbar(
-                      child: SingleChildScrollView(),
+                      child: SingleChildScrollView(
+                          child: Stack(
+                        children: [
+                          Container(),
+                          Container(),
+                          Container(),
+                          Container(),
+                        ],
+                      )),
                     ),
                   ))
                 ],
