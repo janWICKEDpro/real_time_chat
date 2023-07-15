@@ -47,19 +47,11 @@ class MainScreen extends StatelessWidget {
                     style: AppThemes().headers,
                   ),
                   sizedBox(height: 15),
-                  MySearchBar(),
-                  Expanded(
+                  const MySearchBar(),
+                  const Expanded(
                       child: SizedBox(
                     child: Scrollbar(
-                      child: SingleChildScrollView(
-                          child: Stack(
-                        children: [
-                          Container(),
-                          Container(),
-                          Container(),
-                          Container(),
-                        ],
-                      )),
+                      child: SingleChildScrollView(),
                     ),
                   ))
                 ],
