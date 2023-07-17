@@ -15,11 +15,7 @@ class MainScreen extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [black, purple, white])),
+            decoration: const BoxDecoration(gradient: gradient),
           ),
           Container(
             child: Padding(

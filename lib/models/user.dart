@@ -13,7 +13,11 @@ class User {
   }
 
   factory User.fromJson(Map<String, String> user) {
-    return User(id: user['id'], name: user['name'], email: user['email']);
+    return User(
+      id: user['id'],
+      name: user['name'],
+      email: user['email'],
+    );
   }
 
   @override

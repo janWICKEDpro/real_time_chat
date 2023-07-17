@@ -10,25 +10,31 @@ class MessageTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
+        constraints: BoxConstraints(
+            minWidth: MediaQuery.of(context).size.width * 0.1,
+            maxWidth: MediaQuery.of(context).size.width * 0.5),
         padding:
             const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20), color: white),
+        decoration:
+            BoxDecoration(borderRadius: BorderRadius.circular(20), color: grey),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Hello how are you so what is the time hdgsgrdsfsgfsddgsdtkuugitdetreyet utrertaetrdukuyn9yor",
+              "Hello kajdlkjadlfkjd fakldjf aldkfj ",
               style: AppThemes().message,
-              textAlign: TextAlign.justify,
+              //textAlign: TextAlign.justify,
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                "6:37",
-                style: AppThemes().message,
-              ),
-            )
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  "6:37",
+                  style: AppThemes().message,
+                ),
+              ],
+            ),
           ],
         ),
       ),

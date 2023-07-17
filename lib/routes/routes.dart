@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 class AppRouter {
   GoRouter routes = GoRouter(routes: [
     GoRoute(
-      path: '/',
+      path: '/ad',
       pageBuilder: (context, routerState) => const NoTransitionPage(
         child: MainScreen(),
       ),
@@ -25,7 +25,7 @@ class AppRouter {
       ),
     ),
     GoRoute(
-      path: '/messagingScreen',
+      path: '/',
       pageBuilder: (context, routerState) => const NoTransitionPage(
         child: MessagingScreen(),
       ),
