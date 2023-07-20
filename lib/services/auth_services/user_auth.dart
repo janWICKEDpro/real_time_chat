@@ -1,3 +1,3 @@
 class FirebaseAuthentication {
-  void signIn() async {}
+  Future signIn() async {}
 }
