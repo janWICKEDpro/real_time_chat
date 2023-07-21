@@ -1,22 +1,24 @@
 class User {
-  User({this.id, this.email, this.name});
+  User({this.id, this.email, this.name, this.emailVerified});
   String? id;
   String? email;
   String? name;
-
-  Map<String, String?> toJson() {
+  bool? emailVerified;
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'email': email,
       'name': name,
+      'emailVerified': emailVerified
     };
   }
 
-  factory User.fromJson(Map<String, String> user) {
+  factory User.fromJson(Map<String, dynamic> user) {
     return User(
-      id: user['id'],
-      name: user['name'],
-      email: user['email'],
+      id: user['id'] as String,
+      name: user['name'] as String,
+      email: user['email'] as String,
+      emailVerified: user['emailVerified'] as bool,
     );
   }
 
