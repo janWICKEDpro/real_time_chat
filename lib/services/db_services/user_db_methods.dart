@@ -1,8 +1,18 @@
 import 'package:chat_app/models/user.dart';
+import 'package:chat_app/services/locator.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserDBMethods {
   //add a new user to the database
-  Future addUser(User user) async {}
+  Future<User?> addUser(User user) async {
+    try {
+      await locator<FirebaseFirestore>().collection('Users').add(user.toJson());
+      return user;
+    } catch (e) {
+      //notify error handler
+      return null;
+    }
+  }
 
   //create a new contact
   Future addContact(String myID, String contactID) async {}
