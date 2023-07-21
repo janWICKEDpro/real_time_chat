@@ -2,6 +2,7 @@ import 'package:chat_app/routes/routes.dart';
 import 'package:chat_app/services/auth_services/user_auth.dart';
 import 'package:chat_app/services/db_services/message_db_methods.dart';
 import 'package:chat_app/services/db_services/user_db_methods.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 
@@ -14,4 +15,5 @@ void registerClasses() {
   locator.registerFactory<UserDBMethods>(() => UserDBMethods());
   locator.registerFactory<MessageDBMethods>(() => MessageDBMethods());
   locator.registerFactory<FirebaseAuth>(() => FirebaseAuth.instance);
+  locator.registerFactory<FirebaseFirestore>(() => FirebaseFirestore.instance);
 }

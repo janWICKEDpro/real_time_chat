@@ -8,11 +8,11 @@ class UserDBMethods {
   Future addContact(String myID, String contactID) async {}
 
   //searches the database for contacts if not found on local storage
-  Future<User> searchContacts(String contactName) async {}
+  // Future<User> searchContacts(String contactName) async {}
 
   //delete contact
   Future deleteContact(String contactId) async {}
 
   //get a list of all a users contacts.
-  Future<List<User>> getContacts(String myId) async {}
+  // Future<List<User>> getContacts(String myId) async {}
 }
