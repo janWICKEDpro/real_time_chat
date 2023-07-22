@@ -30,7 +30,7 @@ class MessagingScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 30,
                         backgroundColor: purple,
                       ),
@@ -54,12 +54,12 @@ class MessagingScreen extends StatelessWidget {
             ),
             ...List.generate(messages.length, (index) {
               if (messages[index].receiverId == '2') {
-                return Align(
+                return const Align(
                   alignment: Alignment.centerRight,
                   child: MessageTile(),
                 );
               }
-              return Align(
+              return const Align(
                 alignment: Alignment.centerLeft,
                 child: MessageTile(),
               );

@@ -1,8 +1,6 @@
 import 'package:chat_app/themes/colors.dart';
 import 'package:chat_app/themes/themes.dart';
-import 'package:chat_app/widgets/chat_tile.dart';
 import 'package:chat_app/widgets/search_bar.dart';
-import 'package:chat_app/widgets/message_tile.dart';
 import 'package:chat_app/widgets/size_box.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +24,7 @@ class MainScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.white,
                       ),
@@ -34,7 +32,7 @@ class MainScreen extends StatelessWidget {
                           radius: 25,
                           backgroundColor: Colors.white,
                           child: IconButton(
-                              onPressed: () {}, icon: Icon(Icons.more_horiz)))
+                              onPressed: () {}, icon: const Icon(Icons.more_horiz)))
                     ],
                   ),
                   sizedBox(height: 10),
