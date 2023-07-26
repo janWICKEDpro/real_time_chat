@@ -11,25 +11,34 @@ class MessagingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onVerticalDragUpdate: (_) {
-        context.pop();
-      },
-      child: Scaffold(
-        body: Container(
+    return Scaffold(
+      body: GestureDetector(
+        onVerticalDragUpdate: (details) {
+          if (details.delta.direction > 0) {
+            context.pop();
+          }
+        },
+        child: Container(
           decoration: const BoxDecoration(gradient: gradient),
         ),
-        bottomSheet: Container(
-          height: MediaQuery.of(context).size.height * 0.91,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(15)),
-            color: white,
-          ),
-          child: Column(
-            children: [
-              sizedBox(height: 5),
-              Center(
+      ),
+      bottomSheet: Container(
+        height: MediaQuery.of(context).size.height * 0.91,
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          color: white,
+        ),
+        child: Column(
+          children: [
+            sizedBox(height: 5),
+            GestureDetector(
+              onVerticalDragUpdate: (details) {
+                if (details.delta.direction > 0) {
+                  context.pop();
+                }
+              },
+              child: Center(
                 child: Container(
                   height: 5,
                   width: 50,
@@ -38,49 +47,49 @@ class MessagingScreen extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        const CircleAvatar(
-                          radius: 30,
-                          backgroundColor: purple,
-                        ),
-                        sizedBox(width: 5),
-                        Text(
-                          "Xavi Simons",
-                          style: AppThemes().name,
-                        )
-                      ],
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: grey, borderRadius: BorderRadius.circular(30)),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.more_horiz),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 30,
+                        backgroundColor: purple,
                       ),
-                    )
-                  ],
-                ),
+                      sizedBox(width: 5),
+                      Text(
+                        "Xavi Simons",
+                        style: AppThemes().name,
+                      )
+                    ],
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: grey, borderRadius: BorderRadius.circular(30)),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.more_horiz),
+                    ),
+                  )
+                ],
               ),
-              ...List.generate(messages.length, (index) {
-                if (messages[index].receiverId == '2') {
-                  return const Align(
-                    alignment: Alignment.centerRight,
-                    child: MessageTile(),
-                  );
-                }
+            ),
+            ...List.generate(messages.length, (index) {
+              if (messages[index].receiverId == '2') {
                 return const Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.centerRight,
                   child: MessageTile(),
                 );
-              }),
-            ],
-          ),
+              }
+              return const Align(
+                alignment: Alignment.centerLeft,
+                child: MessageTile(),
+              );
+            }),
+          ],
         ),
       ),
     );

@@ -21,8 +21,8 @@ class MainScreen extends StatelessWidget {
           ),
           Container(
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 25.0, horizontal: 10),
+              padding: const EdgeInsets.only(
+                  top: 25, bottom: 4, left: 10, right: 10),
               child: Column(
                 children: [
                   Row(
@@ -47,24 +47,24 @@ class MainScreen extends StatelessWidget {
                   ),
                   sizedBox(height: 15),
                   const MySearchBar(),
+                  sizedBox(height: 10),
                   Expanded(
-                    child: SizedBox(
-                      child: Scrollbar(
-                          child: ListView.separated(
-                        itemCount: 5,
-                        itemBuilder: (context, index) {
-                          return InkWell(
-                              onTap: () {
-                                context.push('/messaging');
-                              },
-                              child: const ChatTile());
-                        },
-                        separatorBuilder: (BuildContext context, int index) {
-                          return sizedBox(height: 5);
-                        },
-                      )),
-                    ),
-                  )
+                    child: Scrollbar(
+                        interactive: true,
+                        child: ListView.separated(
+                          itemCount: 5,
+                          itemBuilder: (context, index) {
+                            return InkWell(
+                                onTap: () {
+                                  context.push('/messaging');
+                                },
+                                child: const ChatTile());
+                          },
+                          separatorBuilder: (BuildContext context, int index) {
+                            return sizedBox(height: 5);
+                          },
+                        )),
+                  ),
                 ],
               ),
             ),
