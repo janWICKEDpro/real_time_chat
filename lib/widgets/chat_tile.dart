@@ -11,7 +11,7 @@ class ChatTile extends StatelessWidget {
     return Opacity(
       opacity: 1.0,
       child: Container(
-        height: 180,
+        padding: const EdgeInsets.all(8),
         width: MediaQuery.of(context).size.width * 0.964,
         decoration: BoxDecoration(
           color: white,
@@ -27,16 +27,16 @@ class ChatTile extends StatelessWidget {
                   children: [
                     const Positioned(
                       child: CircleAvatar(
-                        radius: 40,
+                        radius: 25,
                         backgroundColor: Colors.red,
                       ),
                     ),
                     Positioned(
-                        left: 60,
-                        top: 60,
+                        left: 35,
+                        top: 35,
                         child: Container(
-                          height: 18,
-                          width: 18,
+                          height: 15,
+                          width: 15,
                           decoration: BoxDecoration(
                             color: white,
                             borderRadius: BorderRadius.circular(20),
@@ -59,7 +59,7 @@ class ChatTile extends StatelessWidget {
                   children: [
                     Text(
                       "Xavier Peloski",
-                      style: AppThemes().name,
+                      style: AppThemes().name.copyWith(fontSize: 17),
                     ),
                     Text("13:57", style: AppThemes().subheader)
                   ],

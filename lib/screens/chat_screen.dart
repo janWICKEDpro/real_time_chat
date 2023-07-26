@@ -1,8 +1,12 @@
+import 'package:chat_app/routes/routes.dart';
+import 'package:chat_app/services/locator.dart';
 import 'package:chat_app/themes/colors.dart';
 import 'package:chat_app/themes/themes.dart';
+import 'package:chat_app/widgets/chat_tile.dart';
 import 'package:chat_app/widgets/search_bar.dart';
 import 'package:chat_app/widgets/size_box.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -32,7 +36,8 @@ class MainScreen extends StatelessWidget {
                           radius: 25,
                           backgroundColor: Colors.white,
                           child: IconButton(
-                              onPressed: () {}, icon: const Icon(Icons.more_horiz)))
+                              onPressed: () {},
+                              icon: const Icon(Icons.more_horiz)))
                     ],
                   ),
                   sizedBox(height: 10),
@@ -42,12 +47,24 @@ class MainScreen extends StatelessWidget {
                   ),
                   sizedBox(height: 15),
                   const MySearchBar(),
-                  const Expanded(
-                      child: SizedBox(
-                    child: Scrollbar(
-                      child: SingleChildScrollView(),
+                  Expanded(
+                    child: SizedBox(
+                      child: Scrollbar(
+                          child: ListView.separated(
+                        itemCount: 5,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                              onTap: () {
+                                context.push('/messaging');
+                              },
+                              child: const ChatTile());
+                        },
+                        separatorBuilder: (BuildContext context, int index) {
+                          return sizedBox(height: 5);
+                        },
+                      )),
                     ),
-                  ))
+                  )
                 ],
               ),
             ),
