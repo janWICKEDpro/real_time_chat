@@ -1,10 +1,12 @@
 import 'package:chat_app/dummy_data/dummy_data.dart';
+import 'package:chat_app/models/message.dart';
 import 'package:chat_app/themes/colors.dart';
 import 'package:chat_app/themes/themes.dart';
 import 'package:chat_app/widgets/message_tile.dart';
 import 'package:chat_app/widgets/size_box.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:grouped_list/grouped_list.dart';
 
 class MessagingScreen extends StatelessWidget {
   const MessagingScreen({super.key});
@@ -77,18 +79,29 @@ class MessagingScreen extends StatelessWidget {
                 ],
               ),
             ),
-            ...List.generate(messages.length, (index) {
-              if (messages[index].receiverId == '2') {
-                return const Align(
-                  alignment: Alignment.centerRight,
-                  child: MessageTile(),
-                );
-              }
-              return const Align(
-                alignment: Alignment.centerLeft,
-                child: MessageTile(),
-              );
-            }),
+            Expanded(
+              child: GroupedListView<Message, DateTime>(
+                reverse: false,
+                order: GroupedListOrder.ASC,
+                useStickyGroupSeparators: true,
+                floatingHeader: true,
+                padding: const EdgeInsets.all(8),
+                elements: messages,
+                groupBy: (Message message) => DateTime(message.timeSent!.year,
+                    message.timeSent!.month, message.timeSent!.day),
+                itemBuilder: (context, element) {
+                  return element.receiverId == '2'
+                      ? const Align(
+                          alignment: Alignment.centerRight,
+                          child: MessageTile(),
+                        )
+                      : const Align(
+                          alignment: Alignment.centerLeft,
+                          child: MessageTile(),
+                        );
+                },
+              ),
+            )
           ],
         ),
       ),
