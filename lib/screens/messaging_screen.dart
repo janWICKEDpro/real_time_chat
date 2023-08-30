@@ -3,6 +3,7 @@ import 'package:chat_app/models/message.dart';
 import 'package:chat_app/themes/colors.dart';
 import 'package:chat_app/themes/themes.dart';
 import 'package:chat_app/widgets/message_tile.dart';
+import 'package:chat_app/widgets/send_message_field.dart';
 import 'package:chat_app/widgets/size_box.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -101,7 +102,8 @@ class MessagingScreen extends StatelessWidget {
                         );
                 },
               ),
-            )
+            ),
+            const SendMessageField()
           ],
         ),
       ),
