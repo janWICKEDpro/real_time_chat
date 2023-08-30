@@ -1,6 +1,5 @@
 import 'package:chat_app/themes/colors.dart';
 import 'package:chat_app/themes/themes.dart';
-import 'package:chat_app/widgets/chat_tile.dart';
 import 'package:chat_app/widgets/size_box.dart';
 import 'package:flutter/material.dart';
 
